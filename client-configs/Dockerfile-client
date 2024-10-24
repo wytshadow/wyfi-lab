@@ -1,0 +1,7 @@
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && apt-get install -y wpasupplicant iptables
+
+# Default command to keep the container running
+CMD ["tail", "-f", "/dev/null"]

@@ -1,0 +1,9 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y hostapd iptables bridge-utils
+
+# Copy the specific hostapd configuration file for WPA3 network
+COPY hostapd-wpa3.conf /etc/hostapd/hostapd.conf
+
+# Start hostapd when the container runs
+CMD ["hostapd", "/etc/hostapd/hostapd.conf"]
